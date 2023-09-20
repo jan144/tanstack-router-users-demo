@@ -1,7 +1,7 @@
 import { Route } from "@tanstack/react-router";
-import { appLayout } from "../layout";
+import { appLayoutRoute } from "../layout";
 
 export const settingsRoute = new Route({
   path: "settings",
-  getParentRoute: () => appLayout,
+  getParentRoute: () => appLayoutRoute,
 });
