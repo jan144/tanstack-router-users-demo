@@ -4,7 +4,11 @@ import { settingsUsersRoute } from "./route";
 
 export const SettingsUsers = () => {
   const routeContext = settingsUsersRoute.useRouteContext();
-  const users = useLoaderInstance(routeContext.loaderOptions).data;
+  const users =
+    useLoaderInstance({
+      ...routeContext.loaderOptions,
+      strict: false,
+    }).data ?? [];
   const navigate = useNavigate({ from: settingsUsersRoute.fullPath });
   const search = useSearch({ from: settingsUsersRoute.id });
 
