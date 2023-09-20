@@ -1,4 +1,4 @@
-import { Loader } from '@tanstack/react-loaders';
+import { Loader } from "@tanstack/react-loaders";
 
 interface User {
   id: number;
@@ -25,12 +25,12 @@ interface User {
 }
 
 export const usersLoader = new Loader({
-  key: 'usersLoader',
+  key: "usersLoader",
   fn: async ({ username }: { username: string }) => {
     const users: User[] = await fetch(
       `https://jsonplaceholder.typicode.com/users${
-        username && username.length > 0 ? `?username=${username}` : ''
-      }`
+        username && username.length > 0 ? `?username=${username}` : ""
+      }`,
     ).then((res) => res.json());
     return users;
   },

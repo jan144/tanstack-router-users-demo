@@ -1,7 +1,6 @@
-import { useLoaderInstance } from '@tanstack/react-loaders';
-import { useNavigate, useSearch } from '@tanstack/react-router';
-import React from 'react';
-import { settingsUsersRoute } from './route';
+import { useLoaderInstance } from "@tanstack/react-loaders";
+import { useNavigate, useSearch } from "@tanstack/react-router";
+import { settingsUsersRoute } from "./route";
 
 export const SettingsUsers = () => {
   const routeContext = settingsUsersRoute.useRouteContext();
