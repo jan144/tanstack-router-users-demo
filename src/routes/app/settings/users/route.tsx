@@ -9,16 +9,13 @@ export const settingsUsersRoute = new Route({
   path: "users",
   getParentRoute: () => settingsRoute,
   component: SettingsUsers,
-  beforeLoad: ({ routeSearch: { username } }) => {
-    return {
-      loaderOptions: createLoaderOptions({
+  loader: async ({ routeSearch: { username } }) => ({
+    users: await appLoaderClient.load(
+      createLoaderOptions({
         key: "usersLoader",
         variables: { username },
       }),
-    };
-  },
-  loader: async ({ routeContext: { loaderOptions } }) => {
-    await appLoaderClient.load(loaderOptions);
-  },
+    ),
+  }),
   validateSearch: z.object({ username: z.string().optional() }),
 });

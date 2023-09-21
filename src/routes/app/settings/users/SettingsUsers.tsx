@@ -1,14 +1,8 @@
-import { useLoaderInstance } from "@tanstack/react-loaders";
-import { useNavigate, useSearch } from "@tanstack/react-router";
+import { useLoader, useNavigate, useSearch } from "@tanstack/react-router";
 import { settingsUsersRoute } from "./route";
 
 export const SettingsUsers = () => {
-  const routeContext = settingsUsersRoute.useRouteContext();
-  const users =
-    useLoaderInstance({
-      ...routeContext.loaderOptions,
-      strict: false,
-    }).data ?? [];
+  const { users } = useLoader({ from: settingsUsersRoute.id });
   const navigate = useNavigate({ from: settingsUsersRoute.fullPath });
   const search = useSearch({ from: settingsUsersRoute.id });
 
