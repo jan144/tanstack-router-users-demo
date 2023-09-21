@@ -18,4 +18,5 @@ export const settingsUsersRoute = new Route({
     ),
   }),
   validateSearch: z.object({ username: z.string().optional() }),
+  maxAge: 0,
 });
